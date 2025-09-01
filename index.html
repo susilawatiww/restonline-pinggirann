@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Restoran Online</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <!-- Header -->
+  <header>
+    <h1>🍽 Restoran Online</h1>
+    <a href="#" class="reservasi">Reservasi Meja</a>
+    <div class="cart-icon" onclick="toggleCart()">
+      🛒 <span id="cartCount">0</span>
+    </div>
+  </header>
+
+  <!-- Search Bar -->
+  <section class="search-bar">
+    <input type="text" id="searchInput" placeholder="Cari menu favorit...">
+    <button onclick="searchMenu()">Cari</button>
+  </section>
+
+  <!-- Kategori -->
+  <section class="kategori">
+    <button class="active" onclick="filterMenu('all', event)">Semua</button>
+    <button onclick="filterMenu('nasi', event)">Nasi</button>
+    <button onclick="filterMenu('mie', event)">Mie</button>
+    <button onclick="filterMenu('minuman', event)">Minuman</button>
+  </section>
+
+  <!-- Menu -->
+  <main>
+    <h2>Rekomendasi Menu</h2>
+    <div class="menu-container" id="menuList">
+      <!-- Contoh item menu -->
+      <div class="menu-item" data-kategori="nasi">
+        <img src="https://www.sugarspicenmore.com/wp-content/uploads/2022/08/Nasi-Goreng-4-1975x2048.jpg" alt="Nasi Goreng">
+        <h3>Nasi Goreng Spesial</h3>
+        <p class="harga">25000</p>
+        <button onclick="addToCart('Nasi Goreng Spesial', 25000, 'https://www.sugarspicenmore.com/wp-content/uploads/2022/08/Nasi-Goreng-4-1975x2048.jpg')">Pesan</button>
+      </div>
+
+      <div class="menu-item" data-kategori="mie">
+        <img src="https://assets-a2.kompasiana.com/items/album/2023/04/24/mie-mahameru-64467659a7e0fa0900647a82.jpeg?v=770" alt="Mie Ayam">
+        <h3>Mie Ayam Jumbo</h3>
+        <p class="harga">20000</p>
+        <button onclick="addToCart('Mie Ayam Jumbo', 20000, 'https://assets-a2.kompasiana.com/items/album/2023/04/24/mie-mahameru-64467659a7e0fa0900647a82.jpeg?v=770')">Pesan</button>
+      </div>
+
+      <div class="menu-item" data-kategori="nasi">
+        <img src="https://resepkoki.co/wp-content/uploads/2019/09/resep-sate.jpg" alt="Sate Ayam">
+        <h3>Sate Ayam</h3>
+        <p class="harga">30000</p>
+        <button onclick="addToCart('Sate Ayam', 30000, 'https://resepkoki.co/wp-content/uploads/2019/09/resep-sate.jpg')">Pesan</button>
+      </div>
+
+      <div class="menu-item" data-kategori="nasi">
+        <img src="https://i.pinimg.com/originals/22/a9/9e/22a99e5cff6ef7fd0c703e0b0ae42f66.png" alt="Soto Ayam">
+        <h3>Soto Ayam</h3>
+        <p class="harga">22000</p>
+        <button onclick="addToCart('Soto Ayam', 22000, 'https://i.pinimg.com/originals/22/a9/9e/22a99e5cff6ef7fd0c703e0b0ae42f66.png')">Pesan</button>
+      </div>
+
+      <div class="menu-item" data-kategori="mie">
+        <img src="https://asset-2.tstatic.net/tribunnews/foto/bank/images/ilustrasi-bakso-sapi.jpg" alt="Bakso">
+        <h3>Bakso Spesial</h3>
+        <p class="harga">18000</p>
+        <button onclick="addToCart('Bakso Spesial', 18000, 'https://asset-2.tstatic.net/tribunnews/foto/bank/images/ilustrasi-bakso-sapi.jpg')">Pesan</button>
+      </div>
+
+      <div class="menu-item" data-kategori="minuman">
+        <img src="https://png.pngtree.com/png-vector/20240925/ourmid/pngtree-jumbo-iced-tea-transparent-background-png-image_13911071.png" alt="Es Teh">
+        <h3>Es Teh Manis</h3>
+        <p class="harga">5000</p>
+        <button onclick="addToCart('Es Teh Manis', 5000, 'https://png.pngtree.com/png-vector/20240925/ourmid/pngtree-jumbo-iced-tea-transparent-background-png-image_13911071.png')">Pesan</button>
+      </div>
+    </div>
+  </main>
+
+  <!-- Keranjang Belanja -->
+  <div id="cart" class="cart">
+    <h3>Keranjang Belanja</h3>
+    <ul id="cartItems"></ul>
+    <div class="cart-total">
+      <p>Total: Rp <span id="cartTotal">0</span></p>
+    </div>
+    <button class="checkout-btn" onclick="checkout()">Checkout</button>
+  </div>
+
+  <!-- Script -->
+  <script src="script.js"></script>
+</body>
+</html>
